@@ -105,7 +105,7 @@ class Crawler:
     ######################
 
 
-c = Crawler('vjudge1')
+# c = Crawler('vjudge1')
 
-c.crawl()
-c.user_info()
+# c.crawl()
+# c.user_info()
