@@ -10,4 +10,4 @@ The generated badge looks like the user badge on [ProjectEuler](https://projecte
 ## Structure
 * POJBadge_generator: central modules; receives input from users; makes use of other two 
 * badge_generator: as name suggests; solely in charge of PNG generation
-* crawler: crawl designated user data from online judge
+* crawler: crawls designated user data from online judge
