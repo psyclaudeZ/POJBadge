@@ -82,5 +82,9 @@ class Badge_Generator:
              print 'Failed to generate background.'
              return False
 
+    # end of utility methods
+    #######################
+
+     
 # g = Badge_Generator()
 # g.generate_background()
