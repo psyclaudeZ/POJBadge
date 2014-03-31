@@ -18,6 +18,9 @@ class Crawler:
         self._solved = -1
         self._submission = -1
         self._school = ''
+
+        # crawl the data once the object has been initialized
+        self.crawl()
     # end of constructor
     ######################
 
