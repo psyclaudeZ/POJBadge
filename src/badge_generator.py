@@ -73,9 +73,9 @@ class Badge_Generator:
 
             # resize and generate the backgound and save it in the output folder
             self._image = Image.open('../resources/poj_background.jpg').\
-                    resize((200, 80))
+                    resize((200, 60))
 
-            # self._image.save('../out/' + name + '.png', 'PNG')
+            self._image.save('../out/' + name + '.png', 'PNG')
             return True
         # handle the exception of unsuccessful generation
         except:
@@ -86,5 +86,5 @@ class Badge_Generator:
     #######################
 
      
-# g = Badge_Generator()
-# g.generate_background()
+g = Badge_Generator()
+g.generate_background()
