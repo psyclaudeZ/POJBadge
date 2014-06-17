@@ -7,6 +7,10 @@ The generated badge looks like the user badge on [ProjectEuler](https://projecte
 
 ![Badge of ProjectEuler](out/psyclaudeZ.png)
 
+Current look of POJBadge.
+
+![POJBadge](out/test.png)
+
 ## Structure
 * POJBadge_generator: central modules; receives input from users; makes use of other two 
 * badge_generator: as name suggests; solely in charge of PNG generation
