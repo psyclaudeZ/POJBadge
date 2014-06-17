@@ -6,15 +6,18 @@
 #
 
 from PIL import Image
+from PIL import ImageFont
+from PIL import ImageDraw
 
 class Badge_Generator: 
     ######################
     # constructor
     def __init__(self, name = 'test'):
         self._name = name
-        self._submission =  -1
-        self._solved = -1
-        self._school = ''
+        self._submission = 364 
+        self._solved = 219 
+        self._school = 'New York University'
+        self._rank = 2974
         self._image = None
     # end of constructor
     ######################
@@ -66,21 +69,50 @@ class Badge_Generator:
     #     + True, if successful
     #     + False, if failed
     def generate_background(self, size = 'normal', name = ''):
-        try:
+        #try:
         # by default, using the user name as the image name
-            if name == '':
-                name = self._name
+        if name == '':
+            name = self._name
 
-            # resize and generate the backgound and save it in the output folder
-            self._image = Image.open('../resources/poj_background.jpg').\
-                    resize((200, 60))
+        # resize and generate the backgound and save it in the output folder
+        self._image = Image.open('../resources/poj_background.jpg').\
+                resize((200, 60))
 
-            self._image.save('../out/' + name + '.png', 'PNG')
-            return True
+        # set canvas for appending text
+        draw = ImageDraw.Draw(self._image)
+
+        # set font
+        largeFont = ImageFont.truetype("/Library/Fonts/Times New Roman Bold.ttf",\
+            12);
+        smallFont = ImageFont.truetype("/Library/Fonts/Arial.ttf",\
+            10);
+
+        # append text to the canvas
+        draw.text((5, 5), 'PKU JudgeOnline', (0, 0, 255), largeFont)
+
+        draw.text((5, 25), 'Rank:', (0, 0, 0), smallFont)
+        draw.text((35, 25), str(self._rank), (255, 0, 0), smallFont)
+
+        draw.text((5, 35), 'User:', (0, 0, 0), smallFont)
+        draw.text((35, 35), str(self._name), (0, 0, 255), smallFont)
+
+        draw.text((80, 25), 'Solved:', (0, 0, 0), smallFont)
+        draw.text((140, 25), str(self._solved), (0, 0, 255), smallFont)
+
+        draw.text((80, 35), 'Submission:', (0, 0, 0), smallFont)
+        draw.text((140, 35), str(self._submission), (0, 0, 255), smallFont)
+
+        draw.text((5, 45), 'AC%:', (0, 0, 0), smallFont)
+        draw.text((35, 45), str(round(self._solved * 100. / self._submission,\
+            2)), (0, 0, 255), smallFont)
+
+        # save the image
+        self._image.save('../out/' + name + '.png', 'PNG')
+        return True
         # handle the exception of unsuccessful generation
-        except:
-             print 'Failed to generate background.'
-             return False
+        #except:
+        #     print 'Failed to generate background.'
+        #     return False
 
     # end of utility methods
     #######################
