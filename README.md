@@ -14,9 +14,9 @@ Current look of POJBadge (keeps updating).
 ![POJBadge](out/test.png)
 
 ## Dependencies
-* python 2.7
-* PIL for image generation
-* BeautifulSoup for parsing HTML
+* Python 2.7;
+* PIL for image generation;
+* BeautifulSoup for parsing HTML.
 
 ## How to Use
 TBA.
