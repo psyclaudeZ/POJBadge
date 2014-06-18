@@ -9,7 +9,7 @@ The generated badge looks like the user badge on [ProjectEuler](https://projecte
 
 ![Badge of ProjectEuler](out/psyclaudeZ.png)
 
-Current look of POJBadge.
+Current look of POJBadge (keeps updating).
 
 ![POJBadge](out/test.png)
 
