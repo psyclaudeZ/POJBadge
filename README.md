@@ -13,7 +13,7 @@ Current look of POJBadge.
 
 ![POJBadge](out/test.png)
 
-## Dependency
+## Dependencies
 * python 2.7
 * PIL for image generation
 * BeautifulSoup for parsing HTML
