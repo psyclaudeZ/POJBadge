@@ -8,11 +8,12 @@
 from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
+from PIL import ImageOps
 
 class Badge_Generator: 
     ######################
     # constructor
-    def __init__(self, name = 'test'):
+    def __init__(self, name = 'zbw163'):
         self._name = name
         self._submission = 364 
         self._solved = 219 
@@ -90,21 +91,23 @@ class Badge_Generator:
         # append text to the canvas
         draw.text((5, 5), 'PKU JudgeOnline', (0, 0, 255), largeFont)
 
-        draw.text((5, 25), 'Rank:', (0, 0, 0), smallFont)
-        draw.text((35, 25), str(self._rank), (255, 0, 0), smallFont)
+        draw.text((5, 20), self._name, (0, 0, 255), largeFont)
 
-        draw.text((5, 35), 'User:', (0, 0, 0), smallFont)
-        draw.text((35, 35), str(self._name), (0, 0, 255), smallFont)
-
-        draw.text((80, 25), 'Solved:', (0, 0, 0), smallFont)
-        draw.text((140, 25), str(self._solved), (0, 0, 255), smallFont)
-
-        draw.text((80, 35), 'Submission:', (0, 0, 0), smallFont)
-        draw.text((140, 35), str(self._submission), (0, 0, 255), smallFont)
+        draw.text((5, 35), 'Rank:', (0, 0, 0), smallFont)
+        draw.text((35, 35), str(self._rank), (255, 0, 0), smallFont)
 
         draw.text((5, 45), 'AC%:', (0, 0, 0), smallFont)
         draw.text((35, 45), str(round(self._solved * 100. / self._submission,\
             2)), (0, 0, 255), smallFont)
+
+        draw.text((80, 35), 'Solved:', (0, 0, 0), smallFont)
+        draw.text((140, 35), str(self._solved), (0, 0, 255), smallFont)
+
+        draw.text((80, 45), 'Submission:', (0, 0, 0), smallFont)
+        draw.text((140, 45), str(self._submission), (0, 0, 255), smallFont)
+
+        # append border to the original image
+        self._image = ImageOps.expand(self._image, border = 2, fill = 'grey')
 
         # save the image
         self._image.save('../out/' + name + '.png', 'PNG')
