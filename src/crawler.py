@@ -4,9 +4,7 @@
 #
 # Author: Bowei Zhang (psyclaudeZ)
 #
-import requests
 import urllib2
-import json
 
 from BeautifulSoup import BeautifulSoup as BS
 
